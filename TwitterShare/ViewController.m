@@ -12,7 +12,10 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
-- (void)configureTextView;
+@property (weak, nonatomic) IBOutlet UITextView *facebookTextView;
+@property (weak, nonatomic) IBOutlet UITextView *moreTextView;
+
+- (void)configureTextViews;
 
 @end
 
@@ -22,12 +25,56 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self configureTextView];
+    [self configureTextViews];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)showTwitterShare:(id)sender {
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        
+        SLComposeViewController *twitterController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        if ([self.tweetTextView.text length] < 140) {
+            [twitterController setInitialText:self.tweetTextView.text];
+        } else {
+            NSString *shortText = [self.tweetTextView.text substringToIndex:140];
+            [twitterController setInitialText:shortText];
+        }
+        
+        [self presentViewController:twitterController animated:YES completion:nil];
+        
+    } else {
+        [self showAlertMessage:@"You are not logged in to your Twitter account."];
+    }
+    
+}
+- (IBAction)showFacebookShare:(id)sender {
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *facebookController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [facebookController setInitialText:self.facebookTextView.text];
+        
+        [self presentViewController:facebookController animated:YES completion:nil];
+    } else {
+        [self showAlertMessage:@"You are not logged in to your Facebook account."];
+    }
+    
+}
+- (IBAction)showMoreShare:(id)sender {
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self.moreTextView.text] applicationActivities:nil];
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+    
+}
+- (IBAction)showNoAction:(id)sender {
+    
+    [self showAlertMessage:@"This doesn't do anything"];
+    
 }
 
 - (IBAction)showShareAction:(id)sender {
@@ -83,9 +130,18 @@
         
     }];
     
+    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"More" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        UIActivityViewController *moreVC = [[UIActivityViewController alloc] initWithActivityItems:@[self.tweetTextView.text] applicationActivities:nil];
+        
+        [self presentViewController:moreVC animated:YES completion:nil];
+        
+    }];
+    
     [actionController addAction:cancelAction];
     [actionController addAction:tweetAction];
     [actionController addAction:facebookAction];
+    [actionController addAction:moreAction];
     
     [self presentViewController:actionController animated:YES completion:nil];
     
@@ -93,7 +149,7 @@
 
 - (void)showAlertMessage:(NSString *)anyMessage {
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Share" message:anyMessage preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Social Share" message:anyMessage preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
     
@@ -102,10 +158,20 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)configureTextView {
-    self.tweetTextView.layer.backgroundColor = [[UIColor colorWithRed:1.0 green:1.0 blue:0.9 alpha:1.0] CGColor];
+- (void)configureTextViews {
+    self.tweetTextView.layer.backgroundColor = [[UIColor colorWithRed:1.0 green:0.8 blue:0.89 alpha:1.0] CGColor];
     self.tweetTextView.layer.cornerRadius = 10.0;
     self.tweetTextView.layer.borderColor = [[UIColor colorWithWhite:0 alpha:0.5] CGColor];
     self.tweetTextView.layer.borderWidth = 2.0;
+    
+    self.facebookTextView.layer.backgroundColor = [[UIColor colorWithRed:0.89 green:1 blue:0.89 alpha:1.0] CGColor];
+    self.facebookTextView.layer.cornerRadius = 10.0;
+    self.facebookTextView.layer.borderColor = [[UIColor colorWithWhite:0 alpha:0.5] CGColor];
+    self.facebookTextView.layer.borderWidth = 2.0;
+    
+    self.moreTextView.layer.backgroundColor = [[UIColor colorWithRed:0.9 green:0.89 blue:0.98 alpha:1.0] CGColor];
+    self.moreTextView.layer.cornerRadius = 10.0;
+    self.moreTextView.layer.borderColor = [[UIColor colorWithWhite:0 alpha:0.5] CGColor];
+    self.moreTextView.layer.borderWidth = 2.0;
 }
 @end

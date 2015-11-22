@@ -24,32 +24,79 @@
                                     <barButtonItem systemItem="action" id="TeU-cN-bs5">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="showShareAction:" destination="BYZ-38-t0r" id="dHn-ZK-ewo"/>
+                                            <action selector="showTwitterShare:" destination="BYZ-38-t0r" id="etb-hm-LAm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="action" id="nUy-eO-Vkd">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="showFacebookShare:" destination="BYZ-38-t0r" id="A1u-dL-PqJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="action" id="Vt7-pc-8cb">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="showMoreShare:" destination="BYZ-38-t0r" id="6Ur-QV-OuB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="action" id="Nhg-kt-5eC">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="showNoAction:" destination="BYZ-38-t0r" id="AZL-9f-eaO"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" red="0.1058823529" green="0.65490196079999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vwa-ok-ECG">
-                                <rect key="frame" x="-4" y="64" width="328" height="504"/>
+                                <rect key="frame" x="6" y="74" width="308" height="152"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <string key="text">TwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitterTwitter</string>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="28i-rF-eJk">
+                                <rect key="frame" x="6" y="242" width="308" height="151"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">FacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebookFacebook</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tX9-Q6-F9N">
+                                <rect key="frame" x="6" y="406" width="308" height="152"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">MoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMoreMore</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="28i-rF-eJk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-10" id="2ae-A1-Bm4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hq9-mp-cYQ" secondAttribute="trailing" constant="-20" id="3JJ-eb-0oS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vwa-ok-ECG" secondAttribute="bottom" id="AEN-r4-Pgq"/>
-                            <constraint firstItem="Vwa-ok-ECG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Grz-HJ-Ce5"/>
+                            <constraint firstItem="tX9-Q6-F9N" firstAttribute="width" secondItem="Vwa-ok-ECG" secondAttribute="width" id="3Oe-Ss-foT"/>
+                            <constraint firstItem="tX9-Q6-F9N" firstAttribute="height" secondItem="Vwa-ok-ECG" secondAttribute="height" id="8xp-tk-lXc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tX9-Q6-F9N" secondAttribute="bottom" constant="10" id="DlR-Ee-rJg"/>
+                            <constraint firstItem="Vwa-ok-ECG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-10" id="Grz-HJ-Ce5"/>
+                            <constraint firstItem="Vwa-ok-ECG" firstAttribute="leading" secondItem="28i-rF-eJk" secondAttribute="leading" id="O9X-au-PER"/>
+                            <constraint firstItem="28i-rF-eJk" firstAttribute="height" secondItem="Vwa-ok-ECG" secondAttribute="height" id="Shi-ix-R6Q"/>
+                            <constraint firstItem="28i-rF-eJk" firstAttribute="leading" secondItem="tX9-Q6-F9N" secondAttribute="leading" id="Xo7-Lp-Pi1"/>
                             <constraint firstItem="Hq9-mp-cYQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ZJp-gy-J1o"/>
-                            <constraint firstItem="Vwa-ok-ECG" firstAttribute="top" secondItem="Hq9-mp-cYQ" secondAttribute="bottom" id="ecx-Yp-J0d"/>
+                            <constraint firstItem="Vwa-ok-ECG" firstAttribute="top" secondItem="Hq9-mp-cYQ" secondAttribute="bottom" constant="10" id="ecx-Yp-J0d"/>
                             <constraint firstItem="Hq9-mp-cYQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="g1m-WE-zSn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vwa-ok-ECG" secondAttribute="trailing" constant="-20" id="mU5-Rd-8bb"/>
+                            <constraint firstItem="tX9-Q6-F9N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-10" id="kas-Od-0kb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vwa-ok-ECG" secondAttribute="trailing" constant="-10" id="mU5-Rd-8bb"/>
+                            <constraint firstItem="28i-rF-eJk" firstAttribute="top" secondItem="Vwa-ok-ECG" secondAttribute="bottom" constant="16" id="rf4-oK-BBm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="28i-rF-eJk" secondAttribute="trailing" constant="-10" id="uQ3-NI-w6i"/>
+                            <constraint firstItem="28i-rF-eJk" firstAttribute="width" secondItem="Vwa-ok-ECG" secondAttribute="width" id="vNQ-gz-HKN"/>
+                            <constraint firstItem="tX9-Q6-F9N" firstAttribute="top" secondItem="28i-rF-eJk" secondAttribute="bottom" constant="13" id="yfh-rH-HtW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tX9-Q6-F9N" secondAttribute="trailing" constant="-10" id="z2L-hA-2J7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="facebookTextView" destination="28i-rF-eJk" id="3D4-U9-GNG"/>
+                        <outlet property="moreTextView" destination="tX9-Q6-F9N" id="PEm-cG-L0s"/>
                         <outlet property="tweetTextView" destination="Vwa-ok-ECG" id="DbJ-YF-3CU"/>
                     </connections>
                 </viewController>
